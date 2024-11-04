@@ -1,5 +1,6 @@
 package umc.study.domain;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +17,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -33,6 +36,10 @@ public class Review {
     private Float score;
 
     private String body;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 
     @ManyToOne
     @JoinColumn(name = "member_id", nullable = false)

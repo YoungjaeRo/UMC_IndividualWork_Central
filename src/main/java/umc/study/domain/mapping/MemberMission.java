@@ -1,5 +1,7 @@
 package umc.study.domain.mapping;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -40,4 +42,8 @@ public class MemberMission extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mission_id", nullable = false)
     private Mission mission; // Mission과 다대일 관계
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 }

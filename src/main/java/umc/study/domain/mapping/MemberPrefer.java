@@ -1,5 +1,7 @@
 package umc.study.domain.mapping;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -34,4 +36,8 @@ public class MemberPrefer extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private FoodCategory foodCategory;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 }

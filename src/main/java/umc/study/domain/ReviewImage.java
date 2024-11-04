@@ -1,6 +1,7 @@
 package umc.study.domain;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,4 +32,8 @@ public class ReviewImage extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "review_id", nullable = false)
     private Review review;
+
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
 }
