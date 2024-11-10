@@ -36,8 +36,4 @@ public class MemberAgree extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "terms_id")
     private Terms terms;
-
-    private LocalDateTime createdAt;
-
-    private LocalDateTime updatedAt;
 }

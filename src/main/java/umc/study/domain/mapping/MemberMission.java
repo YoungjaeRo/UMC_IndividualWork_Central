@@ -36,14 +36,10 @@ public class MemberMission extends BaseEntity {
     private MissionStatus status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "member_id", nullable = false)
-    private Member member; // Member와 다대일 관계
+    @JoinColumn(name = "member_id")
+    private Member member;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mission_id", nullable = false)
-    private Mission mission; // Mission과 다대일 관계
-
-    private LocalDateTime createdAt;
-
-    private LocalDateTime updatedAt;
+    @JoinColumn(name = "mission_id")
+    private Mission mission;
 }

@@ -35,10 +35,6 @@ public class Terms extends BaseEntity {
 
     private Boolean optional;
 
-    private LocalDateTime createdAt;
-
-    private LocalDateTime updatedAt;
-
     @OneToMany(mappedBy = "terms", cascade = CascadeType.ALL)
     private List<MemberAgree> memberAgreeList = new ArrayList<>();
 }
