@@ -7,5 +7,4 @@ import umc.study.domain.Member;
 public interface MemberQueryService {
 
     Optional<Member> findMember(Long id);
-
 }

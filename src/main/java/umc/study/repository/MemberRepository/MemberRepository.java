@@ -1,4 +1,4 @@
-package umc.study.repository;
+package umc.study.repository.MemberRepository;
 
 import java.util.List;
 

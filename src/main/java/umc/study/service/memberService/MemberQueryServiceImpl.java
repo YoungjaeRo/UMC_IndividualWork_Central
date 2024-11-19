@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import umc.study.domain.Member;
-import umc.study.repository.MemberRepository;
+import umc.study.repository.MemberRepository.MemberRepository;
 
 @Service
 @RequiredArgsConstructor

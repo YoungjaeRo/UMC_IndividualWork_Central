@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import umc.study.apiPayload.ApiResponse;
 import umc.study.converter.TempConverter;
 import umc.study.service.tempService.TempQueryService;
-import umc.study.web.dto.TempResponse;
+import umc.study.web.dto.temp.TempResponse;
 
 @RestController
 @RequestMapping("/temp")
