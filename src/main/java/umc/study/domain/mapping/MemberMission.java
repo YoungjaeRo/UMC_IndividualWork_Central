@@ -1,12 +1,15 @@
 package umc.study.domain.mapping;
 
+import java.time.LocalDateTime;
+
 import lombok.*;
 import umc.study.domain.Member;
 import umc.study.domain.Mission;
 import umc.study.domain.common.BaseEntity;
-import umc.study.domain.enums.MissionStatus;
 
 import jakarta.persistence.*;
+import umc.study.domain.enums.MemberStatus;
+import umc.study.domain.enums.MissionStatus;
 
 @Entity
 @Getter
@@ -29,4 +32,6 @@ public class MemberMission extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mission_id")
     private Mission mission;
+
+    private LocalDateTime challengedAt;
 }
