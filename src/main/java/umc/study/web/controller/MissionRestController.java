@@ -31,15 +31,15 @@ import umc.study.web.dto.MissionResponseDTO;
 @RequiredArgsConstructor
 @Validated
 @RequestMapping("/missions")
-public class MissionController {
+public class MissionRestController {
 
     private final MissionCommandService missionCommandService;
     private final MissionQueryService missionQueryService;
 
 
-    @Operation(summary = "가게에 미션 추가",
+    @Operation(summary = "특정 가게에 미션 추가",
         description = "특정 가게에 새로운 미션을 추가하는 API입니다. 요청 시 미션 정보를 입력해야 합니다.")
-    @PostMapping("/")
+    @PostMapping("/add")
     public ApiResponse<MissionResponseDTO.AddMissionResultDTO> addMission(
             @RequestBody @Valid MissionRequestDTO.AddMissionDTO request) {
         Mission mission = missionCommandService.addMission(request);

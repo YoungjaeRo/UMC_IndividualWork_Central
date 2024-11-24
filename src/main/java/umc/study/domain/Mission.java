@@ -32,9 +32,9 @@ public class Mission extends BaseEntity {
 
     private Integer point;
 
-    private LocalDateTime startDate;
+    private LocalDate startDate;
 
-    private LocalDateTime endDate;
+    private LocalDate endDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id")
@@ -42,4 +42,14 @@ public class Mission extends BaseEntity {
 
     @OneToMany(mappedBy = "mission", cascade = CascadeType.ALL)
     private List<MemberMission> memberMissionList = new ArrayList<>();
+
+    @PrePersist
+    public void prePersist() {
+        if (this.startDate == null) {
+            this.startDate = LocalDate.now(); // 기본값: 오늘 날짜
+        }
+        if (this.endDate == null) {
+            this.endDate = LocalDate.now().plusDays(7); // 기본값: 오늘로부터 7일 후
+        }
+    }
 }

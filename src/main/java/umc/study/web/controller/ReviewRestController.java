@@ -27,14 +27,14 @@ import umc.study.web.dto.ReviewResponseDTO;
 @RequiredArgsConstructor
 @Validated
 @RequestMapping("/reviews")
-public class ReviewController {
+public class ReviewRestController {
 
     private final ReviewCommandService reviewCommandService;
     private final ReviewQueryService reviewQueryService;
 
-    @Operation(summary = "가게에 리뷰 추가",
+    @Operation(summary = "특정 가게에 리뷰 추가",
         description = "가게에 대한 리뷰를 추가하는 API입니다. 리뷰를 추가하려면 가게 ID와 평가 내용을 입력해야 합니다.")
-    @PostMapping("/")
+    @PostMapping("/add")
     public ApiResponse<Long> addReview(@RequestBody @Valid ReviewRequestDTO.AddReviewDTO request) {
         Long reviewId = reviewCommandService.addReview(request);
         return ApiResponse.onSuccess(reviewId);

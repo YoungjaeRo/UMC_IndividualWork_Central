@@ -20,13 +20,13 @@ import umc.study.web.dto.MemberMissionResponseDTO;
 @RequiredArgsConstructor
 @Validated
 @RequestMapping("/member-missions")
-public class MemberMissionController {
+public class MemberMissionRestController {
 
     private final MemberMissionCommandService memberMissionCommandService;
 
     @Operation(summary = "가게의 미션을 도전 중인 미션에 추가",
         description = "회원이 특정 가게의 미션에 도전하는 API입니다. 요청 시 미션 ID와 회원 정보를 입력해야 합니다.")
-    @PostMapping("/")
+    @PostMapping("/start")
     public ApiResponse<MemberMissionResponseDTO.MissionChallengeResultDTO> addMissionChallenge(
             @RequestBody @Valid MemberMissionRequestDTO.AddMissionDTO request) {
         MemberMission missionChallenge = memberMissionCommandService.addMissionChallenge(request);
