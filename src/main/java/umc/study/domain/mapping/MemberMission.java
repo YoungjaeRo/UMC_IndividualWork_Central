@@ -1,5 +1,6 @@
 package umc.study.domain.mapping;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import lombok.*;
@@ -13,6 +14,7 @@ import umc.study.domain.enums.MissionStatus;
 
 @Entity
 @Getter
+@Setter
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -34,4 +36,7 @@ public class MemberMission extends BaseEntity {
     private Mission mission;
 
     private LocalDateTime challengedAt;
+
+    private LocalDate startDate; // 시작 날짜
+    private LocalDate dueDate;   // 종료 날짜
 }

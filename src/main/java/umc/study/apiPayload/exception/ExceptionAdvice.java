@@ -118,5 +118,18 @@ public class ExceptionAdvice extends ResponseEntityExceptionHandler {
         );
     }
 
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ApiResponse<?>> handleValidationException(MethodArgumentNotValidException ex) {
+        // 유효성 검사에서 발생한 첫 번째 에러 메시지를 가져옴
+        String errorMessage = Optional.ofNullable(ex.getBindingResult().getFieldError())
+            .map(fieldError -> fieldError.getDefaultMessage())
+            .orElse("Validation failed");
+
+        // ApiResponse.onFailure 호출: result에 null 전달
+        ApiResponse<?> response = ApiResponse.onFailure("VALIDATION_ERROR", errorMessage, null);
+
+        // 잘못된 요청 상태 반환
+        return ResponseEntity.badRequest().body(response);
+    }
 
 }
