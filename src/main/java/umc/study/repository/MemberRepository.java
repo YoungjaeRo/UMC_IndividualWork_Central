@@ -1,6 +1,7 @@
 package umc.study.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,4 +15,5 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query("SELECT m FROM Member m WHERE m.name = :name AND m.status = :status")
     List<Member> findByNameAndStatus(@Param("name") String name, @Param("status") MemberStatus status);
 
+    Optional<Member> findByEmail(String email);
 }
