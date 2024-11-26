@@ -36,11 +36,14 @@ public class MemberConverter {
         }
 
         return Member.builder()
-                .address(request.getAddress())
-                .specAddress(request.getSpecAddress())
-                .gender(gender)
-                .name(request.getName())
-                .memberPreferList(new ArrayList<>())
-                .build();
+            .name(request.getName())
+            .email(request.getEmail())   // 추가된 코드
+            .password(request.getPassword())   // 추가된 코드
+            .gender(gender)
+            .address(request.getAddress())
+            .specAddress(request.getSpecAddress())
+            .role(request.getRole())   // 추가된 코드
+            .memberPreferList(new ArrayList<>())
+            .build();
     }
 }
