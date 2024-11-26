@@ -23,6 +23,10 @@ public class Review extends BaseEntity {
 
     private String body;
 
+    private String content;
+
+    private Integer rating;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
